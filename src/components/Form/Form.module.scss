@@ -1,0 +1,32 @@
+.form{
+    background-color: black;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.SearchBar {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    margin-top: -1rem;
+}
+.Header {
+    font-size: 3rem;
+    color: white;
+    margin-bottom: 2rem;
+    margin-right: 40%;
+    margin-left: 40%;
+  }
+  .inputBtn:hover {
+    cursor: pointer;
+    background-color: rgb(172, 170, 170);
+  }
+
+  .Plot {
+    margin-bottom: 1rem;
+  }
+  

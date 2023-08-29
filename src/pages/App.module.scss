@@ -1,0 +1,19 @@
+.App {
+    font-family: "Poppins", sans-serif;
+    text-align: center;
+
+  }
+
+//Theme
+.ThemeLabel {
+    font-size: 1.2rem;
+    display: flex;
+    color: white;
+    background-color: black;
+  }
+.ThemeLabel:hover {
+    cursor: pointer;
+  }
+.CheckBox {
+    opacity: 0%;
+  }
