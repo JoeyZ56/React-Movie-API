@@ -1,22 +1,52 @@
-.movieTitle{
-    margin-bottom: 1rem;
-}
-.movieInfo {
-    margin-top: 2rem;
-    margin-right: 30%;
-    margin-left: 30%;
-    color: white;
-
-    }
-
-.Poster {
-filter: drop-shadow(0px 45px 45px black);
-margin-bottom: 4rem;
-margin-top: 0.5rem;
-
-
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 
 }
-.Poster:hover {
-    cursor: pointer;
+
+.movieCard {
+    perspective: 1000px;
+    width: 300px; 
+    height: 450px; 
+    position: relative;
+
+    margin: 1rem 1rem 1rem 1rem;
+
+    
+    
   }
+  
+  .movieFront,
+  .movieBack {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    backface-visibility: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+ 
+    border-radius: 5px; /* Add border radius as needed */
+
+    
+  }
+  
+  .movieBack {
+    background-color: whitesmoke;
+h2 {
+    font-size: 1.5rem;
+    font-weight: 700;
+}
+h3 {
+    font-weight: 600;
+}
+
+    
+}
+
+  .hidden {
+    display: none;
+  }
+  

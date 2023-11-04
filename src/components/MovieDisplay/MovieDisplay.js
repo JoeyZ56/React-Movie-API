@@ -1,6 +1,7 @@
 import React from 'react';
 import { useState } from 'react';
 import styles from './MovieDisplay.module.scss';
+import { motion } from 'framer-motion';
 
 export default function MovieDisplay({ movie }) {
 	const apiKey = '57f9e729';
@@ -25,34 +26,46 @@ export default function MovieDisplay({ movie }) {
 		setToggle(!toggle);
 	};
 
-	const loading = () => <>Currently Loading Movie...</>;
+	const loading = () => <>Currently Loading Movie List...</>;
 	const loaded = () => (
-		<div className={styles.moviePage} onClick={() => handleClick(movie.imdbID)}>
-			<ul className={styles.movieInfo}>
-				<div className={styles.movieTitle}>
+		<div className={styles.container}>
+			<motion.div
+				className={styles.movieCard}
+				onClick={() => handleClick(movie.imdbID)}
+			>
+				<motion.div
+					className={`${styles.movieFront} ${toggle ? styles.hidden : ''}`}
+				>
+					<motion.img
+						whileHover={{ scale: 1.1 }}
+						transition={{ duration: 0.5, type: 'tween' }}
+						src={movie.Poster}
+						alt={movie.Title}
+						className={styles.Poster}
+					/>
+				</motion.div>
+				<motion.div
+					className={`${styles.movieBack} ${toggle ? '' : styles.hidden}`}
+				>
 					<h2 className={styles.Movie}>{movie.Title}</h2>
-					<h3>Released: {movie.Year}</h3>
-				</div>
-				{selectedMovie && toggle === true ? (
-					<>
-						<h4>
-							Director: <br />
-							{selectedMovie.Director}
-						</h4>
-						<h4>Genre: {selectedMovie.Genre}</h4>
-						<br />
-						<h3>Rated: {selectedMovie.Rated}</h3>
-						<br />
-						<p className={styles.Plot}>
-							Plot: <br />
-							{selectedMovie.Plot}
-						</p>
-					</>
-				) : (
-					''
-				)}
-			</ul>
-			{<img src={movie.Poster} alt={movie.Title} className={styles.Poster} />}
+					<br />
+					<h3>Released: {movie.Year}</h3> <br />
+					{selectedMovie && (
+						<>
+							<h3>Director:</h3>
+							<h4>{selectedMovie.Director}</h4>
+							<br />
+							<h3>Genre:</h3>
+							<h4> {selectedMovie.Genre}</h4>
+							<br />
+							<h3>Plot:</h3>
+							<p className={styles.Plot}>{selectedMovie.Plot}</p>
+							<br />
+							<h3>Rated: {selectedMovie.Rated}</h3>
+						</>
+					)}
+				</motion.div>
+			</motion.div>
 		</div>
 	);
 

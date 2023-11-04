@@ -6,11 +6,14 @@ import styles from './App.module.scss';
 export const ThemeContext = createContext(null);
 
 export default function App() {
+	//Theme state
 	const [theme, setTheme] = useState('light');
-	//variable with your apiKey
-	const apiKey = '57f9e729';
+
 	//State to hold movie data
 	const [movies, setMovies] = useState(null);
+
+	//variable with your apiKey
+	const apiKey = '57f9e729';
 
 	//Function to getMovies
 	const getMovies = async (searchTerm) => {
@@ -36,7 +39,8 @@ export default function App() {
 		setMovies(data);
 	};
 
-	// USE OUR COMPONENTS IN APPs RETURNED JSX
+	// USE OUR COMPONENTS IN APPs RETURNED JS
+
 	// We pass the getMovie function as a prop called moviesearch
 
 	useEffect(() => {
@@ -50,7 +54,7 @@ export default function App() {
 	return (
 		<ThemeContext.Provider value={{ theme, toggleTheme }}>
 			<div className={styles.App} id={theme}>
-				<label className={styles.ThemeLabel}>
+				{/* <label className={styles.ThemeLabel}>
 					{' '}
 					Theme
 					<input
@@ -59,9 +63,10 @@ export default function App() {
 						value={theme}
 						onClick={toggleTheme}
 					/>
-				</label>
+				</label> */}
 				{/* passing a prop (rendering) */}
-				<Form moviesearch={getMovies} />
+
+				<Form moviesearch={getMovies} toggleTheme={toggleTheme} />
 				<MoviesDisplay movies={movies} getMovieInfo={getMovieInfo} />
 			</div>
 		</ThemeContext.Provider>

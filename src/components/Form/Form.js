@@ -2,11 +2,12 @@ import { useState } from 'react';
 import styles from './Form.module.scss';
 
 // Define a function that is our component, always make sure to declare the props parameter so you can use props in your component
-export default function Form(props) {
+export default function Form({ props, toggleTheme }) {
 	//State to hold the data of our form
 	const [formData, setFormData] = useState({
 		searchterm: ''
 	});
+	const [theme, setTheme] = useState('light');
 
 	//handleChange - updates formData when we type into form
 	const handleChange = (event) => {
@@ -21,10 +22,30 @@ export default function Form(props) {
 		props.moviesearch(formData.searchterm);
 	};
 
+	const handleToggleTheme = () => [
+		setTheme((curr) => (curr === 'theme1' ? 'theme2' : 'theme1')),
+		toggleTheme()
+	];
+
 	//The component must return some JSX
 	return (
 		<div className={styles.form}>
-			<h1 className={styles.Header}>Movie Search</h1>
+			<div className="toggleContainer">
+				<label className="app__toggle-label">
+					<input
+						className="app__toggle-input"
+						type="checkbox"
+						value={theme}
+						checked={theme === 'theme2'}
+						onClick={handleToggleTheme}
+					/>
+
+					<div className="app__toggle-fill"></div>
+				</label>
+			</div>
+
+			<h1 className={styles.title}>Movie Search</h1>
+
 			<form onSubmit={handleSubmit}>
 				<input
 					className={styles.SearchBar}
@@ -34,7 +55,9 @@ export default function Form(props) {
 					onChange={handleChange}
 					value={formData.searchterm}
 				/>
-				<input type="submit" value="search" className={styles.inputBtn} />
+				<button type="submit" value="search" className={styles.inputBtn}>
+					Search
+				</button>
 			</form>
 		</div>
 	);

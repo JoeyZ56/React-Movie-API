@@ -1,5 +1,4 @@
 import MovieDisplay from '../MovieDisplay/MovieDisplay';
-import styles from './MoviesDisplay.module.scss';
 
 export default function MoviesDisplay({ movies, getMovieInfo }) {
 	const loaded = () => (
@@ -7,7 +6,7 @@ export default function MoviesDisplay({ movies, getMovieInfo }) {
 			{movies.Response === 'True' ? (
 				movies.Search.map((movie) => (
 					<MovieDisplay
-						key={movies.imdbID}
+						key={movie.imdbID}
 						movie={movie}
 						getMovieInfo={getMovieInfo}
 					/>
