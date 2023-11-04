@@ -24,9 +24,8 @@ function _toPrimitive(input, hint) { if (typeof input !== "object" || input === 
 
 
 // Define a function that is our component, always make sure to declare the props parameter so you can use props in your component
-function Form(_ref) {
+function Form(props, _ref) {
   let {
-    props,
     toggleTheme
   } = _ref;
   //State to hold the data of our form

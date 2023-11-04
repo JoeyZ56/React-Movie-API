@@ -2,7 +2,7 @@ import { useState } from 'react';
 import styles from './Form.module.scss';
 
 // Define a function that is our component, always make sure to declare the props parameter so you can use props in your component
-export default function Form({ props, toggleTheme }) {
+export default function Form(props, { toggleTheme }) {
 	//State to hold the data of our form
 	const [formData, setFormData] = useState({
 		searchterm: ''
