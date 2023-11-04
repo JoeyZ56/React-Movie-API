@@ -3,7 +3,23 @@
 @import "reset";
 @import "grid";
 
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 
+  div {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+
+    
+  }
+  img {
+    color: whitesmoke;
+  }
+  
+}
 
 
 //Theme
@@ -25,7 +41,8 @@ background-attachment: fixed;
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-bottom: 0.5rem;
+  margin-right: 1rem;
+  
 }
 
 .app__toggle-label {
@@ -64,12 +81,12 @@ background-attachment: fixed;
   width: var(--width);
   height: var(--height);
   border-radius: var(--border-radius);
-  background: rgba(255, 0, 0, 0.813);
+  background: #123fd5;
   transition: background 0.2s;
 }
 
 .app__toggle-input:checked ~ .app__toggle-fill {
-  background: #123fd5;
+  background:rgba(255, 0, 0, 0.813);
 }
 
 .app__toggle-fill::after {

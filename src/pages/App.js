@@ -2,6 +2,7 @@ import { useState, useEffect, createContext } from 'react';
 import MoviesDisplay from '../components/MoviesDisplay/MoviesDisplay';
 import Form from '../components/Form/Form';
 import styles from './App.module.scss';
+import Footer from '../components/Footer/Footer';
 
 export const ThemeContext = createContext(null);
 
@@ -66,8 +67,9 @@ export default function App() {
 				</label> */}
 				{/* passing a prop (rendering) */}
 
-				<Form moviesearch={getMovies} toggleTheme={toggleTheme} />
+				<Form moviesearch={getMovies} />
 				<MoviesDisplay movies={movies} getMovieInfo={getMovieInfo} />
+				<Footer toggleTheme={toggleTheme} />
 			</div>
 		</ThemeContext.Provider>
 	);
